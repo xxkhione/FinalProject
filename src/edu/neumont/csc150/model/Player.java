@@ -21,4 +21,14 @@ public class Player extends Character implements Attackable{
     public void attack() {
 
     }
+
+    @Override
+    protected void setHealth(int health) {
+        
+    }
+
+    @Override
+    public String toString() {
+        return null;
+    }
 }
