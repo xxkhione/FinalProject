@@ -6,7 +6,7 @@
  */
 package edu.neumont.csc150.model;
 
-public abstract class Character {
+public abstract class Character implements Attackable{
     public final static int MIN_HEALTH = 0;
     private String name;
     private Arsenal weapon;

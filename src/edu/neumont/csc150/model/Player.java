@@ -6,9 +6,7 @@
  */
 package edu.neumont.csc150.model;
 
-public class Player extends Character implements Attackable{
-
-
+public class Player extends Character{
     public final static int MAX_HEALTH = 100;
 
 

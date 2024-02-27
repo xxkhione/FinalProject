@@ -6,7 +6,7 @@
  */
 package edu.neumont.csc150.model;
 
-public class Enemy extends Character implements Attackable{
+public class Enemy extends Character{
 
 
 
