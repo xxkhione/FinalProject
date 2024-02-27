@@ -6,5 +6,17 @@
  */
 package edu.neumont.csc150.model;
 
-public class Enemy {
+public class Enemy extends Character implements Attackable{
+
+
+
+    @Override
+    public void takeDamage() {
+
+    }
+
+    @Override
+    public void attack() {
+
+    }
 }
