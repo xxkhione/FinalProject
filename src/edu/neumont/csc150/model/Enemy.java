@@ -21,7 +21,7 @@ public class Enemy extends Character{
     }
 
     @Override
-    protected void setHealth(int health) {
+    public void setHealth(int health) {
 
     }
 
