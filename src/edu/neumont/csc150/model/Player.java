@@ -8,7 +8,7 @@ package edu.neumont.csc150.model;
 
 public class Player extends Character{
     public final static int MAX_HEALTH = 100;
-    
+
     @Override
     public void takeDamage() {
 
@@ -26,6 +26,8 @@ public class Player extends Character{
 
     @Override
     public String toString() {
-        return null;
+        return "Player Name:" + super.getName() +
+                "Player health:" + super.getHealth() +
+                "Player Weapon:" + super.getWeapon();
     }
 }

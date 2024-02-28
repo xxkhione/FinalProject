@@ -27,6 +27,7 @@ public class Enemy extends Character{
 
     @Override
     public String toString() {
-        return null;
+        return "Enemy Health" + super.getHealth() +
+                "Enemy Weapon" + super.getWeapon();
     }
 }
