@@ -12,6 +12,7 @@ public abstract class Character implements Attackable{
     private Arsenal weapon;
     private int damage;
     private int health;
+    private int maxHealth;
     private boolean isAlive;
 
     public Character(){
@@ -65,7 +66,17 @@ public abstract class Character implements Attackable{
         }
         this.health = health;
     }
-    public boolean isAlive() {
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+    private void setMaxHealth(int maxHealth) {
+        if(maxHealth < MIN_HEALTH){
+            throw new IllegalArgumentException(maxHealth + " cannot be lower than" + MIN_HEALTH);
+        }
+        this.maxHealth = maxHealth;
+    }
+
+    private boolean isAlive() {
         return isAlive;
     }
     public void setAlive(boolean alive) {
