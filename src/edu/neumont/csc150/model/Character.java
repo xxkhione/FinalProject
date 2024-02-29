@@ -57,9 +57,9 @@ public abstract class Character implements Attackable{
     protected void setHealth(int health, int maxHealth){
         if(health > maxHealth){
             health = maxHealth;
-        } else if(health > 0){
+        } else if(health > MIN_HEALTH){
             setAlive(true);
-        } else if(health < 0){
+        } else if(health < MIN_HEALTH){
             health = 0;
             setAlive(false);
         }
