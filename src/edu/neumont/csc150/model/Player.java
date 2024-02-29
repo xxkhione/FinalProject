@@ -23,7 +23,7 @@ public class Player extends Character{
 
     @Override
     public int attack(int damage) {
-
+        return 0;
     }
 
     @Override
