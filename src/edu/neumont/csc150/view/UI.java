@@ -38,7 +38,8 @@ public class UI {
     public int afterDeathPrompt(){
         return Console.getIntInput("""
                 1.Load A Save
-                2.Exit""", 1, 2);
+                2.New Game
+                3.Exit""", 1, 3);
     }
 
     public void noSaves(){
