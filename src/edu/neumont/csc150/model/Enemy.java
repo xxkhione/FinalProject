@@ -11,12 +11,13 @@ public class Enemy extends Character{
 
 
     @Override
-    public void takeDamage() {
-        
+
+    public void takeDamage(int damage) {
+
     }
 
     @Override
-    public void attack() {
+    public void attack(int damage) {
 
     }
 
