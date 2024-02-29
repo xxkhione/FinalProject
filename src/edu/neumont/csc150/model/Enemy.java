@@ -11,7 +11,6 @@ public class Enemy extends Character{
 
 
     @Override
-
     public void takeDamage(int damage) {
 
     }
@@ -21,10 +20,6 @@ public class Enemy extends Character{
 
     }
 
-    @Override
-    public void setHealth(int health) {
-
-    }
 
     @Override
     public String toString() {

@@ -15,13 +15,13 @@ public abstract class Character implements Attackable{
     private boolean isAlive;
 
     public Character(){
-        this("Default", Arsenal.SWORD, 10, 100);
+        this("Default", Arsenal.SWORD, 10, 100, 100);
     }
-    public Character(String name, Arsenal weapon, int damage, int health){
+    public Character(String name, Arsenal weapon, int damage, int health, int maxHealth){
         setName(name);
         setWeapon(weapon);
         setDamage(damage);
-        setHealth(health);
+        setHealth(health, maxHealth);
         setAlive(true);
     }
 
@@ -54,7 +54,17 @@ public abstract class Character implements Attackable{
     public int getHealth() {
         return health;
     }
-    protected abstract void setHealth(int health);
+    protected void setHealth(int health, int maxHealth){
+        if(health > maxHealth){
+            health = maxHealth;
+        } else if(health > 0){
+            setAlive(true);
+        } else if(health < 0){
+            health = 0;
+            setAlive(false);
+        }
+        this.health = health;
+    }
     public boolean isAlive() {
         return isAlive;
     }

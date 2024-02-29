@@ -20,11 +20,6 @@ public class Player extends Character{
     }
 
     @Override
-    protected void setHealth(int health) {
-        
-    }
-
-    @Override
     public String toString() {
         return "Player Name:" + super.getName() +
                 "Player health:" + super.getHealth() +
