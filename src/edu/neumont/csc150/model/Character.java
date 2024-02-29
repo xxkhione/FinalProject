@@ -23,6 +23,7 @@ public abstract class Character implements Attackable{
         setWeapon(weapon);
         setDamage(damage);
         setHealth(health, maxHealth);
+        setMaxHealth(maxHealth);
         setAlive(true);
     }
 

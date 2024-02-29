@@ -25,6 +25,7 @@ public class Enemy extends Character{
     @Override
     public String toString() {
         //Enemy: 40/100 | Weapon: Axe | Damage: 12
-        return this.getClass().getSimpleName() + ": " + super.getHealth()
+        return this.getClass().getSimpleName() + ": " + super.getHealth() + "/" + super.getMaxHealth()
+                + " | Weapon:" + super.getWeapon() + " | Damage:" + super.getTotalDamage(super.getDamage());
     }
 }

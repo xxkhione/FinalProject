@@ -28,8 +28,8 @@ public class Player extends Character{
 
     @Override
     public String toString() {
-        return "Player Name:" + super.getName() +
-                "Player health:" + super.getHealth() +
-                "Player Weapon:" + super.getWeapon();
+        //John: 20/100 | Weapon: Bow | Damage: 15
+         return super.getName() + ": " + super.getHealth() + "/" + super.getMaxHealth()
+                + " | Weapon:" + super.getWeapon() + " | Damage:" + super.getTotalDamage(super.getDamage());
     }
 }
