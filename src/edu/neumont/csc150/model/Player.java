@@ -22,8 +22,13 @@ public class Player extends Character{
     }
 
     @Override
-    public int attack(int damage) {
-        return 0;
+    public int attack(Character enemy) {
+        int attack = getTotalDamage(getDamage());
+        int crit = new Random().nextInt(100)+ 1;
+        if (crit == 10){
+            attack += 10;
+        }
+        return enemy.takeDamage(attack);
     }
 
     @Override
