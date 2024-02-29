@@ -10,12 +10,12 @@ public class Player extends Character{
     public final static int MAX_HEALTH = 100;
 
     @Override
-    public void takeDamage() {
+    public void takeDamage(int damage) {
 
     }
 
     @Override
-    public void attack() {
+    public void attack(int damage) {
 
     }
 
