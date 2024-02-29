@@ -6,16 +6,23 @@
  */
 package edu.neumont.csc150.model;
 
+import java.util.Random;
+
 public class Player extends Character{
     public final static int MAX_HEALTH = 100;
 
     @Override
-    public void takeDamage(int damage) {
-
+    public int takeDamage(int damage) {
+        int block = new Random().nextInt(50) + 1;
+        if (block == 19 ){
+            damage -= (int)(damage * 0.3f);
+        }
+        setHealth(getHealth() - damage, MAX_HEALTH);
+        return damage;
     }
 
     @Override
-    public void attack(int damage) {
+    public int attack(int damage) {
 
     }
 

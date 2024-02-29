@@ -8,7 +8,7 @@ package edu.neumont.csc150.model;
 
 public interface Attackable {
 
-    void takeDamage(int damage);
+    int takeDamage(int damage);
 
-    void attack(int damage);
+    int attack(int damage);
 }
