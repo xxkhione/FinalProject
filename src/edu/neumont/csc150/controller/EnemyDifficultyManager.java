@@ -30,7 +30,7 @@ public class EnemyDifficultyManager {
         switch(trialNumber){
             case 1, 2, 3, 4, 5 -> {
                 health = 75; damage = 5;
-                
+
             }
         }
         return null;

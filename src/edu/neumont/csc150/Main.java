@@ -1,5 +1,6 @@
 package edu.neumont.csc150;
 
+import edu.neumont.csc150.controller.GameManager;
 import edu.neumont.csc150.view.UI;
 
 /**
@@ -11,5 +12,6 @@ import edu.neumont.csc150.view.UI;
 
 public class Main {
     public static void main(String[] args) {
+        new GameManager().Run();
     }
 }
