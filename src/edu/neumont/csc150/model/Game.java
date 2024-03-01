@@ -7,6 +7,8 @@
 package edu.neumont.csc150.model;
 
 public class Game {
+    public final static int MAX_TRIALS = 25;
+    public final static int MAX_WEAPONS = 5;
     private int trialNumber;
     private Character player, enemy;
 

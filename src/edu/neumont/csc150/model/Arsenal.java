@@ -7,7 +7,6 @@
 package edu.neumont.csc150.model;
 
 public enum Arsenal {
-
     HAMMER("Hammer"),
 
     AXE("Axe"),

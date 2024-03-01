@@ -50,8 +50,8 @@ public abstract class Character implements Attackable{
     public void setDamage(int damage) {
         this.damage = damage;
     }
-    public int getTotalDamage(int damage){
-        return damage; //TODO: need to implement the weapon damage once we get that method working
+    public int getTotalDamage(int damage, int weaponDamage){
+        return damage + weaponDamage;
     }
     public int getHealth() {
         return health;
@@ -85,7 +85,25 @@ public abstract class Character implements Attackable{
     }
     //endregion
 
-
+    public int assignWeaponDamage(Arsenal weapon){
+        if(weapon != null){
+            switch(weapon){
+                case BOW, SWORD -> {
+                    return 15;
+                }
+                case AXE -> {
+                    return 20;
+                }
+                case HAMMER -> {
+                    return 30;
+                }
+                case RUBBER_DUCK -> {
+                    return 69;
+                }
+            }
+        }
+        return 0;
+    }
 
     @Override
     public abstract String toString();

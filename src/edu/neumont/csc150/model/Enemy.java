@@ -9,7 +9,13 @@ package edu.neumont.csc150.model;
 import java.util.Random;
 
 public class Enemy extends Character{
+    public Enemy(){
+        super();
+    }
 
+    public Enemy(Arsenal weapon, int damage, int health, int maxHealth){
+        super("Enemy", weapon, damage, health, maxHealth);
+    }
 
 
     @Override
@@ -25,7 +31,7 @@ public class Enemy extends Character{
 
     @Override
     public int attack(Character player) {
-        int attack = getTotalDamage(getDamage());
+        int attack = getTotalDamage(getDamage(), assignWeaponDamage(getWeapon()));
         int crit = new Random().nextInt(100)+ 1;
         if(crit == 25 ){
             attack += 10;
@@ -37,7 +43,7 @@ public class Enemy extends Character{
     @Override
     public String toString() {
         //Enemy: 40/100 | Weapon: Axe | Damage: 12
-        return this.getClass().getSimpleName() + ": " + super.getHealth() + "/" + super.getMaxHealth()
-                + " | Weapon:" + super.getWeapon() + " | Damage:" + super.getTotalDamage(super.getDamage());
+        return this.getClass().getSimpleName() + ": " + getHealth() + "/" + getMaxHealth()
+                + " | Weapon:" + getWeapon() + " | Damage:" + getTotalDamage(getDamage(), assignWeaponDamage(getWeapon()));
     }
 }
