@@ -6,6 +6,10 @@
  */
 package edu.neumont.csc150.view;
 
+import edu.neumont.csc150.controller.SaveManager;
+import edu.neumont.csc150.model.Character;
+import edu.neumont.csc150.model.Player;
+
 public class UI {
 
     public int mainMenu(){
@@ -20,11 +24,14 @@ public class UI {
         //comment
     }
 
-    public void battleMenu(){
-
+    public void battleMenu(Character player, Character enemy){
+        Console.writeLn(player.toString());
+        Console.writeLn(enemy.toString());
     }
 
-    public void attackMenu(){
+    public void attackMenu(Character player, Character enemy){
+        Console.writeLn("Player Name" + player.getName() + "Player Health" + player.getHealth() + "Players Weapon" + player.getWeapon() + "       "  + "Enemy Health" + enemy.getHealth()
+        + "Enemy Weapon" + enemy.getWeapon());
 
     }
 
