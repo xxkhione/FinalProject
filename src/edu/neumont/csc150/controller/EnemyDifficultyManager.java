@@ -24,14 +24,11 @@ public class EnemyDifficultyManager {
     public static Character increaseDifficulty(Game game){
         int trialNumber = game.getTrialNumber();
         float chanceForOPWeapon = rand.nextFloat(0.05f);
-        int health = 0;
-        int damage = 0;
+        int health = game.getEnemy().getHealth();
+        int damage = game.getEnemy().getDamage();
         Arsenal weapon = null;
-        switch(trialNumber){
-            case 1, 2, 3, 4, 5 -> {
-                health = 75; damage = 5;
+        if(trialNumber % 5 == 0 || trialNumber == 1){
 
-            }
         }
         return null;
     }

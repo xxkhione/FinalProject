@@ -10,6 +10,11 @@ import java.util.Random;
 
 public class Player extends Character{
     public final static int MAX_HEALTH = 100;
+    public final static int BASE_DAMAGE = 7;
+
+    public Player(String name){
+        super(name, Arsenal.BOW, BASE_DAMAGE, MAX_HEALTH, MAX_HEALTH);
+    }
 
     @Override
     public int takeDamage(int damage) {

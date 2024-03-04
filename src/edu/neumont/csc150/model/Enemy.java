@@ -33,7 +33,7 @@ public class Enemy extends Character{
     public int attack(Character player) {
         int attack = getTotalDamage(getDamage(), assignWeaponDamage(getWeapon()));
         int crit = new Random().nextInt(100)+ 1;
-        if(crit == 25 ){
+        if(crit == 25){
             attack += 10;
         }
         return attack;
