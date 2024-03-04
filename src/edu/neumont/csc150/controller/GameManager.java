@@ -43,26 +43,18 @@ public class GameManager {
 
         } while (true);
     }
-
-    private void pickASave(){
-        String saveName = ui.allSaves(SaveManager.getAllSaves());
-        if(saveName == null){
-            return;
-        }
-        setGame(SaveManager.loadGame(saveName));
-    }
-
+    
     private void afterBattle(){
         do {
             int selection = ui.afterBattlePrompt();
             switch (selection){
-                case 1:
+                case 1: // Save Game
                     SaveManager.saveGame(game);
                     break;
-                case 2:
+                case 2: // New Weapon
                     Game.generateNewWeapon();
                     break;
-                default:
+                default: // Save and exit
                     SaveManager.saveGame(game);
                     return;
             }
@@ -74,13 +66,13 @@ public class GameManager {
         do {
             int selection = ui.afterDeathPrompt();
             switch (selection){
-                case 1:
+                case 1: // Load Game
                     SaveManager.loadGame(game.getPlayer().getName());
                     break;
-                case 2:
+                case 2: // New Game
                     newGame();
                     break;
-                default:
+                default: // Exit
                     ui.goodByeMessage();
                     return;
             }
@@ -96,5 +88,13 @@ public class GameManager {
     private void saveGame(){
         SaveManager.saveGame(getGame());
         ui.saveMessage();
+    }
+
+    private void pickASave(){
+        String saveName = ui.allSaves(SaveManager.getAllSaves());
+        if(saveName == null){
+            return;
+        }
+        setGame(SaveManager.loadGame(saveName));
     }
 }
