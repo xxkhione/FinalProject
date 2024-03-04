@@ -60,7 +60,7 @@ public class GameManager {
                     SaveManager.saveGame(game);
                     break;
                 case 2:
-                    Game.generateNewWeapon();
+                    game.generateNewWeapon();
                     break;
                 default:
                     SaveManager.saveGame(game);
@@ -94,4 +94,5 @@ public class GameManager {
         SaveManager.saveGame(getGame());
         ui.goodByeMessage();
     }
+
 }

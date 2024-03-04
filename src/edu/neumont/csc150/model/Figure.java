@@ -77,7 +77,7 @@ public abstract class Figure implements Attackable{
         this.maxHealth = maxHealth;
     }
 
-    private boolean isAlive() {
+    public boolean isAlive() {
         return isAlive;
     }
     public void setAlive(boolean alive) {

@@ -54,8 +54,34 @@ public class Game {
     }
     //endregion
 
-    public static void generateNewWeapon(){
+    public void generateNewWeapon(){
 
     }
 
+
+    private boolean battle(){
+        boolean playerIsAlive = player.isAlive(), enemyIsAlive = enemy.isAlive();
+        while(playerIsAlive && enemyIsAlive){
+            enemyIsAlive = playerTurn();
+            if(enemyIsAlive){
+                playerIsAlive = enemyTurn();
+            }
+        }
+        return playerIsAlive;
+    }
+
+    private boolean playerTurn(){
+        if(player.isAlive()){
+            player.attack(enemy);
+            return enemy.isAlive();
+        }
+        return true;
+    }
+    private boolean enemyTurn(){
+        if(enemy.isAlive()){
+            enemy.attack(player);
+            return player.isAlive();
+        }
+        return true;
+    }
 }

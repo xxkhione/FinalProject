@@ -13,7 +13,7 @@ import edu.neumont.csc150.model.Game;
 import java.util.Random;
 
 public class EnemyDifficultyManager {
-    private static final Random rand = new Random();
+    public static final Random rand = new Random();
     //Gets the trial number
     //Based on the number (increments of 5)
     //The damage & health of enemy get stronger

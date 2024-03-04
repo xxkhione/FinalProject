@@ -25,6 +25,7 @@ public class UI {
     public void battleMenu(Figure player, Figure enemy){
         Console.writeLn(player.toString());
         Console.writeLn(enemy.toString());
+        pressEnterTocContinue();
     }
 
     public void attackMenu(Figure player, Figure enemy){
@@ -71,5 +72,8 @@ public class UI {
     }
     public void goodByeMessage(){
         Console.writeLn("Thank you for playing! Goodbye.");
+    }
+    private void pressEnterTocContinue(){
+        Console.getStringInput("~".repeat(10) + " Press [Enter] to continue " + "~".repeat(10), true);
     }
 }
