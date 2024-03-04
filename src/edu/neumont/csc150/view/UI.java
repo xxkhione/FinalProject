@@ -44,9 +44,9 @@ public class UI {
 
     public int afterBattlePrompt(){
         return Console.getIntInput("""
-                1. Save Game
+                1. Save & Continue
                 2. Generate New Weapon
-                3. Save and Quit""", 1, 3);
+                3. Save & Quit""", 1, 3);
     }
 
     public int afterDeathPrompt(){
@@ -86,5 +86,14 @@ public class UI {
     }
     public void saveMessage(){
         Console.writeLn("Successfully saved game");
+    }
+    public void invalidInput(){
+        Console.writeLn("Please enter a valid input.");
+    }
+    public void displayPlayerWonMessage(int trialNumber){
+        Console.writeLn("Congrats Warrior! You have won the " + trialNumber + " trial!");
+    }
+    public void displayPlayerLostMessage(int trialNumber){
+        Console.writeLn("I'm very disappointed in you, warrior. You lost the " + trialNumber + " trial. May you rest in peace.");
     }
 }

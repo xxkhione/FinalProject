@@ -71,6 +71,9 @@ public class Game {
             player.setWeapon(Arsenal.RUBBER_DUCK);
         }
     }
+    public void startOfNewTrial(){
+        player.setHealth(Player.MAX_HEALTH, Player.MAX_HEALTH);
+    }
 
     public boolean playerTurn(){
         if(player.isAlive()){

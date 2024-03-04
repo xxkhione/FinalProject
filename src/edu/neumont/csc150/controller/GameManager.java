@@ -12,7 +12,6 @@ import edu.neumont.csc150.model.Player;
 import edu.neumont.csc150.view.UI;
 
 public class GameManager {
-
     private UI ui = new UI();
     private Game game;
 
@@ -45,21 +44,19 @@ public class GameManager {
     }
 
     private void afterBattle(){
-        do {
-            int selection = ui.afterBattlePrompt();
-            switch (selection){
-                case 1: // Save Game
-                    SaveManager.saveGame(game);
-                    break;
-                case 2: // New Weapon
-                    game.generateNewWeapon();
-                    break;
-                default: // Save and exit
-                    SaveManager.saveGame(game);
-                    return;
-            }
-        } while (true);
-
+        int selection = ui.afterBattlePrompt();
+        switch (selection) {
+            case 1: // Save Game
+                SaveManager.saveGame(game);
+                startBattle();
+                break;
+            case 2: // New Weapon
+                game.generateNewWeapon();
+                startBattle();
+                break;
+            default: //save & exit
+                SaveManager.saveGame(game);
+        }
     }
 
     private void afterDeath(){
@@ -67,7 +64,7 @@ public class GameManager {
             int selection = ui.afterDeathPrompt();
             switch (selection){
                 case 1: // Load Game
-                    SaveManager.loadGame(game.getPlayer().getName());
+                    pickASave();
                     break;
                 case 2: // New Game
                     newGame();
@@ -76,7 +73,6 @@ public class GameManager {
                     ui.goodByeMessage();
                     return;
             }
-
         }while (true);
     }
 
@@ -100,8 +96,10 @@ public class GameManager {
     }
 
     private void startBattle(){
+        game.startOfNewTrial();
         ui.battleMenu(game.getPlayer(), game.getEnemy());
-        battle();
+        boolean playerIsAlive = battle();
+        checkIfPlayerWon(playerIsAlive);
     }
 
     private boolean battle(){
@@ -122,5 +120,14 @@ public class GameManager {
             }
         }
         return playerIsAlive;
+    }
+    private void checkIfPlayerWon(boolean playerIsAlive){
+        if(playerIsAlive){
+            ui.displayPlayerWonMessage(game.getTrialNumber());
+            afterBattle();
+        } else{
+            ui.displayPlayerLostMessage(game.getTrialNumber());
+            afterDeath();
+        }
     }
 }
