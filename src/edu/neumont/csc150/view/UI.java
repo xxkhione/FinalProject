@@ -73,7 +73,10 @@ public class UI {
     public void goodByeMessage(){
         Console.writeLn("Thank you for playing! Goodbye.");
     }
-    private void pressEnterTocContinue(){
+    private void pressEnterTocContinue() {
         Console.getStringInput("~".repeat(10) + " Press [Enter] to continue " + "~".repeat(10), true);
+    }
+    public void saveMessage(){
+        Console.writeLn("Successfully saved game");
     }
 }

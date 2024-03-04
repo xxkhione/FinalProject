@@ -25,6 +25,9 @@ public class Enemy extends Figure {
             damage -= (int)(damage * 0.3f);
         }
         setHealth(getHealth() - damage, getMaxHealth());
+        if(getHealth() == Figure.MIN_HEALTH){
+            setAlive(false);
+        }
         return damage;
 
     }
@@ -35,6 +38,9 @@ public class Enemy extends Figure {
         int crit = new Random().nextInt(100)+ 1;
         if(crit == 25){
             attack += 10;
+        }
+        if(player.getHealth() == 0){
+            setAlive(false);
         }
         return attack;
     }
