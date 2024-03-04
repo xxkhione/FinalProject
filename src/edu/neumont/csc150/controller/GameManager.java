@@ -19,7 +19,6 @@ public class GameManager {
                 case 1:
                     Player p = new Player();
                     String name = ui.getName();
-                    
                     break;
                 case 2:
                     break;
@@ -28,5 +27,12 @@ public class GameManager {
             }
 
         } while (true);
+    }
+
+    public void pickASave(){
+        do {
+            int selection = ui.allSaves();
+
+        }while (true);
     }
 }
