@@ -27,6 +27,7 @@ public class GameManager {
     //endregion
 
     public void Run(){
+        ui.welcomeMessage();
         do {
             int selection = ui.mainMenu();
             switch (selection){
@@ -49,10 +50,42 @@ public class GameManager {
         setGame(SaveManager.loadGame(saveName));
     }
 
-    public void newGame(){
-        String name = ui.getName();
-        Player p = new Player(name);
-
+    private void afterBattle(){
+        do {
+            int selection = ui.afterBattlePrompt();
+            switch (selection){
+                case 1:
+                    SaveManager.saveGame();
+                    break;
+                case 2:
+                    break;
+                default:
+                    SaveManager.saveGame();
+                    return;
+            }
+        } while (true);
 
     }
+
+    private void afterDeath(){
+        do {
+            int selection = ui.afterDeathPrompt();
+            switch (selection){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+                    return;
+            }
+
+        }while (true);
+    }
+
+    private void newGame(){
+        String name = ui.getName();
+        Player p = new Player(name);
+    }
+
+
 }

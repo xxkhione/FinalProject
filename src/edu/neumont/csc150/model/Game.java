@@ -54,4 +54,8 @@ public class Game {
     }
     //endregion
 
+    public static void generateNewWeapon(){
+
+    }
+
 }
