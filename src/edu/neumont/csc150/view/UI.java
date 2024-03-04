@@ -6,9 +6,7 @@
  */
 package edu.neumont.csc150.view;
 
-import edu.neumont.csc150.controller.SaveManager;
 import edu.neumont.csc150.model.Character;
-import edu.neumont.csc150.model.Player;
 
 public class UI {
 
@@ -54,8 +52,8 @@ public class UI {
         //comment
     }
 
-    public void allSaves(){
-
+    public int allSaves(){
+        return 0;
     }
 
 
