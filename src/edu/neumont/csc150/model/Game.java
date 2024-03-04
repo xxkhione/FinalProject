@@ -72,25 +72,14 @@ public class Game {
         }
     }
 
-    public boolean battle(){
-        boolean playerIsAlive = player.isAlive(), enemyIsAlive = enemy.isAlive();
-        while(playerIsAlive && enemyIsAlive){
-            enemyIsAlive = playerTurn();
-            if(enemyIsAlive){
-                playerIsAlive = enemyTurn();
-            }
-        }
-        return playerIsAlive;
-    }
-
-    private boolean playerTurn(){
+    public boolean playerTurn(){
         if(player.isAlive()){
             player.attack(enemy);
             return enemy.isAlive();
         }
         return true;
     }
-    private boolean enemyTurn(){
+    public boolean enemyTurn(){
         if(enemy.isAlive()){
             enemy.attack(player);
             return player.isAlive();

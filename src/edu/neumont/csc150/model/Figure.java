@@ -16,7 +16,7 @@ public abstract class Figure implements Attackable{
     private boolean isAlive;
 
     public Figure(){
-        this("Default", Arsenal.SWORD, 10, 100, 100);
+        this("Default", Arsenal.SWORD, 5, 100, 100);
     }
     public Figure(String name, Arsenal weapon, int damage, int health, int maxHealth){
         setName(name);
@@ -52,6 +52,9 @@ public abstract class Figure implements Attackable{
     }
     public int getTotalDamage(int damage, int weaponDamage){
         return damage + weaponDamage;
+    }
+    public int getWeaponDamage(){
+        return assignWeaponDamage(getWeapon());
     }
     public int getHealth() {
         return health;

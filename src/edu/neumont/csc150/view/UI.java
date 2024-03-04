@@ -7,7 +7,6 @@
 package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.model.Figure;
-import edu.neumont.csc150.model.Player;
 
 public class UI {
 
@@ -30,14 +29,17 @@ public class UI {
         pressEnterTocContinue();
     }
 
-    public void attackMenu(Figure player, Figure enemy){
-        Console.writeLn("Player Name" + player.getName() + "Player Health" + player.getHealth() + "Players Weapon" + player.getWeapon() + "       "  + "Enemy Health" + enemy.getHealth()
-        + "Enemy Weapon" + enemy.getWeapon());
-
+    public void displayBattleInProgress(Figure player, Figure enemy){
+        Console.writeLn(player.toString() + "       " + enemy.toString());
     }
-    public void attackOccurred(Figure player, Figure enemy){
-
-        Console.writeLn(player.getName() + " attacks for" );
+    public boolean attackOccurred(boolean isPlayersTurn, Figure player, Figure enemy){
+        if(isPlayersTurn) {
+            Console.writeLn(player.getName() + " attacks for " + player.getTotalDamage(player.getDamage(), player.getWeaponDamage()));
+            return false;
+        } else{
+            Console.writeLn(enemy.getClass().getSimpleName() + " attacks for " + enemy.getTotalDamage(enemy.getDamage(), enemy.getWeaponDamage()));
+            return true;
+        }
     }
 
     public int afterBattlePrompt(){

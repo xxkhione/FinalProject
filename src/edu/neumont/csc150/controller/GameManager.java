@@ -101,5 +101,26 @@ public class GameManager {
 
     private void startBattle(){
         ui.battleMenu(game.getPlayer(), game.getEnemy());
+        battle();
+    }
+
+    private boolean battle(){
+        boolean playersTurn = true;
+        boolean playerIsAlive = game.getPlayer().isAlive(), enemyIsAlive = game.getEnemy().isAlive();
+        while(playerIsAlive && enemyIsAlive){
+            ui.displayBattleInProgress(game.getPlayer(), game.getEnemy());
+            if(playersTurn) {
+                enemyIsAlive = game.playerTurn();
+                ui.attackOccurred(playersTurn, game.getPlayer(), game.getEnemy());
+                playersTurn = false;
+            } else {
+                if (enemyIsAlive) {
+                    playerIsAlive = game.enemyTurn();
+                    ui.attackOccurred(playersTurn, game.getPlayer(), game.getEnemy());
+                    playersTurn = true;
+                }
+            }
+        }
+        return playerIsAlive;
     }
 }

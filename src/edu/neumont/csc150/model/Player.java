@@ -33,7 +33,7 @@ public class Player extends Figure {
 
     @Override
     public int attack(Figure enemy) {
-        int attack = getTotalDamage(getDamage(), assignWeaponDamage(getWeapon()));
+        int attack = getTotalDamage(getDamage(), getWeaponDamage());
         int crit = new Random().nextInt(100)+ 1;
         if (crit == 10){
             attack += 10;
@@ -47,7 +47,7 @@ public class Player extends Figure {
     @Override
     public String toString() {
         //John: 20/100 | Weapon: Bow | Damage: 15
-         return super.getName() + ": " + super.getHealth() + "/" + super.getMaxHealth()
-                + " | Weapon:" + super.getWeapon() + " | Damage:" + super.getTotalDamage(super.getDamage(), super.assignWeaponDamage(getWeapon()));
+         return getName() + ": " + getHealth() + "/" + getMaxHealth()
+                + " | Weapon:" + getWeapon() + " | Damage:" + getTotalDamage(getDamage(), getWeaponDamage());
     }
 }
