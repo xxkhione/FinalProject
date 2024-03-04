@@ -43,7 +43,7 @@ public class GameManager {
 
         } while (true);
     }
-    
+
     private void afterBattle(){
         do {
             int selection = ui.afterBattlePrompt();
