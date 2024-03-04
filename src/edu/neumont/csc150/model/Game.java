@@ -58,8 +58,7 @@ public class Game {
 
     }
 
-
-    private boolean battle(){
+    public boolean battle(){
         boolean playerIsAlive = player.isAlive(), enemyIsAlive = enemy.isAlive();
         while(playerIsAlive && enemyIsAlive){
             enemyIsAlive = playerTurn();

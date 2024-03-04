@@ -7,6 +7,7 @@
 package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.model.Figure;
+import edu.neumont.csc150.model.Player;
 
 public class UI {
 
@@ -24,6 +25,7 @@ public class UI {
 
     public void battleMenu(Figure player, Figure enemy){
         Console.writeLn(player.toString());
+        Console.writeLn("Is going up against...");
         Console.writeLn(enemy.toString());
         pressEnterTocContinue();
     }
@@ -32,6 +34,10 @@ public class UI {
         Console.writeLn("Player Name" + player.getName() + "Player Health" + player.getHealth() + "Players Weapon" + player.getWeapon() + "       "  + "Enemy Health" + enemy.getHealth()
         + "Enemy Weapon" + enemy.getWeapon());
 
+    }
+    public void attackOccurred(Figure player, Figure enemy){
+
+        Console.writeLn(player.getName() + " attacks for" );
     }
 
     public int afterBattlePrompt(){

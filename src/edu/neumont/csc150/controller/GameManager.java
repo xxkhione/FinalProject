@@ -51,10 +51,8 @@ public class GameManager {
                 case 1: // Save Game
                     SaveManager.saveGame(game);
                     break;
-                case 2:
-                    game.generateNewWeapon();
                 case 2: // New Weapon
-                    Game.generateNewWeapon();
+                    game.generateNewWeapon();
                     break;
                 default: // Save and exit
                     SaveManager.saveGame(game);
@@ -86,6 +84,7 @@ public class GameManager {
         String name = ui.getName();
         Figure player = new Player(name);
         setGame(new Game(player));
+        startBattle();
     }
     private void saveGame(){
         SaveManager.saveGame(getGame());
@@ -100,4 +99,7 @@ public class GameManager {
         setGame(SaveManager.loadGame(saveName));
     }
 
+    private void startBattle(){
+        ui.battleMenu(game.getPlayer(), game.getEnemy());
+    }
 }
