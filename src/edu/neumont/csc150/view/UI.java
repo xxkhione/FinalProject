@@ -69,4 +69,7 @@ public class UI {
     public void welcomeMessage(){
         Console.writeLn("Welcome to this Solo-RPG!");
     }
+    public void goodByeMessage(){
+        Console.writeLn("Thank you for playing! Goodbye.");
+    }
 }

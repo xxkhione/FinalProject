@@ -6,6 +6,7 @@
  */
 package edu.neumont.csc150.controller;
 
+import edu.neumont.csc150.model.Figure;
 import edu.neumont.csc150.model.Game;
 import edu.neumont.csc150.model.Player;
 import edu.neumont.csc150.view.UI;
@@ -16,7 +17,7 @@ public class GameManager {
     private Game game;
 
     //region getters/setters
-    public Game getGame() {
+    private Game getGame() {
         return game;
     }
     private void setGame(Game game) {
@@ -29,11 +30,14 @@ public class GameManager {
         do {
             int selection = ui.mainMenu();
             switch (selection){
-                case 1:
+                case 1: //New Game
+                    newGame();
                     break;
-                case 2:
+                case 2: //Load game
+                    pickASave();
                     break;
-                default:
+                default: //Exit
+                    ui.goodByeMessage();
                     return;
             }
 
@@ -82,8 +86,11 @@ public class GameManager {
 
     private void newGame(){
         String name = ui.getName();
-        Player p = new Player(name);
+        Figure player = new Player(name);
+        setGame(new Game(player));
     }
-
-
+    private void saveGame(){
+        SaveManager.saveGame(getGame());
+        ui.goodByeMessage();
+    }
 }
