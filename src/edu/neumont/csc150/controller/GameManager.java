@@ -6,12 +6,26 @@
  */
 package edu.neumont.csc150.controller;
 
+import edu.neumont.csc150.model.Game;
 import edu.neumont.csc150.model.Player;
 import edu.neumont.csc150.view.UI;
 
 public class GameManager {
 
-    UI ui = new UI();
+    private UI ui = new UI();
+    private Game game;
+
+    //region getters/setters
+    public Game getGame() {
+        return game;
+    }
+
+    private void setGame(Game game) {
+        this.game = game;
+    }
+
+    //endregion
+
     public void Run(){
         do {
             int selection = ui.mainMenu();
@@ -28,13 +42,11 @@ public class GameManager {
     }
 
     public void pickASave(){
-        do {
-            int selection = ui.allSaves();
-            switch (selection){
-
-            }
-
-        }while (true);
+        String saveName = ui.allSaves(SaveManager.getAllSaves());
+        if(saveName == null){
+            return;
+        }
+        setGame(SaveManager.loadGame(saveName));
     }
 
     public void newGame(){

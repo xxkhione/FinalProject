@@ -10,5 +10,5 @@ public interface Attackable {
 
     int takeDamage(int damage);
 
-    int attack(Character enemy);
+    int attack(Figure enemy);
 }

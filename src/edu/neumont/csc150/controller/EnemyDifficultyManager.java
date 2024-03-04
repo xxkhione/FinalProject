@@ -7,8 +7,7 @@
 package edu.neumont.csc150.controller;
 
 import edu.neumont.csc150.model.Arsenal;
-import edu.neumont.csc150.model.Character;
-import edu.neumont.csc150.model.Enemy;
+import edu.neumont.csc150.model.Figure;
 import edu.neumont.csc150.model.Game;
 
 import java.util.Random;
@@ -21,8 +20,7 @@ public class EnemyDifficultyManager {
     //Their chance of getting a harder hitting weapon increases
     //Returns enemy with new properties
 
-    public static Character increaseDifficulty(Game game){
-        int trialNumber = game.getTrialNumber();
+    public static Figure increaseDifficulty(Game game, int trialNumber){
         float chanceForOPWeapon = rand.nextFloat(0.05f);
         int health = game.getEnemy().getHealth();
         int damage = game.getEnemy().getDamage();

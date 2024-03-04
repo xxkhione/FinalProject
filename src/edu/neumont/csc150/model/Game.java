@@ -6,17 +6,24 @@
  */
 package edu.neumont.csc150.model;
 
+import edu.neumont.csc150.controller.EnemyDifficultyManager;
+
 public class Game {
     public final static int MAX_WEAPONS = 5;
     private int trialNumber;
-    private Character player, enemy;
+    private Figure player, enemy;
 
-    public Game(Player player){
+    public Game(Figure player, int trial){
+        setPlayer(player);
+        setEnemy(EnemyDifficultyManager.increaseDifficulty(this, trial));
+        setTrialNumber(trial);
+    }
+    public Game(Figure player){
         setPlayer(player);
         setEnemy(new Enemy());
         setTrialNumber(1);
     }
-    
+
     //region getters/setters
     public int getTrialNumber() {
         return trialNumber;
@@ -27,19 +34,19 @@ public class Game {
         }
         this.trialNumber = trialNumber;
     }
-    public Character getPlayer() {
+    public Figure getPlayer() {
         return player;
     }
-    private void setPlayer(Character player) {
+    private void setPlayer(Figure player) {
         if(player == null){
             throw new IllegalArgumentException("Game player object cannot be null.");
         }
         this.player = player;
     }
-    public Character getEnemy() {
+    public Figure getEnemy() {
         return enemy;
     }
-    private void setEnemy(Character enemy) {
+    private void setEnemy(Figure enemy) {
         if(enemy == null){
             throw new IllegalArgumentException("Game enemy object cannot be null.");
         }

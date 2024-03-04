@@ -8,14 +8,16 @@ package edu.neumont.csc150.model;
 
 import java.util.Random;
 
-public class Player extends Character{
+public class Player extends Figure {
     public final static int MAX_HEALTH = 100;
     public final static int BASE_DAMAGE = 7;
 
     public Player(String name){
         super(name, Arsenal.BOW, BASE_DAMAGE, MAX_HEALTH, MAX_HEALTH);
     }
-
+    public Player(String name, Arsenal weapon, int damage, int health, int maxHealth){
+        super(name, weapon, damage, health, maxHealth);
+    }
     @Override
     public int takeDamage(int damage) {
         int block = new Random().nextInt(50) + 1;
@@ -27,7 +29,7 @@ public class Player extends Character{
     }
 
     @Override
-    public int attack(Character enemy) {
+    public int attack(Figure enemy) {
         int attack = getTotalDamage(getDamage(), assignWeaponDamage(getWeapon()));
         int crit = new Random().nextInt(100)+ 1;
         if (crit == 10){

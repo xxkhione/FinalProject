@@ -6,7 +6,7 @@
  */
 package edu.neumont.csc150.view;
 
-import edu.neumont.csc150.model.Character;
+import edu.neumont.csc150.model.Figure;
 
 public class UI {
 
@@ -22,12 +22,12 @@ public class UI {
         //comment
     }
 
-    public void battleMenu(Character player, Character enemy){
+    public void battleMenu(Figure player, Figure enemy){
         Console.writeLn(player.toString());
         Console.writeLn(enemy.toString());
     }
 
-    public void attackMenu(Character player, Character enemy){
+    public void attackMenu(Figure player, Figure enemy){
         Console.writeLn("Player Name" + player.getName() + "Player Health" + player.getHealth() + "Players Weapon" + player.getWeapon() + "       "  + "Enemy Health" + enemy.getHealth()
         + "Enemy Weapon" + enemy.getWeapon());
 

@@ -8,7 +8,7 @@ package edu.neumont.csc150.model;
 
 import java.util.Random;
 
-public class Enemy extends Character{
+public class Enemy extends Figure {
     public Enemy(){
         super();
     }
@@ -30,7 +30,7 @@ public class Enemy extends Character{
     }
 
     @Override
-    public int attack(Character player) {
+    public int attack(Figure player) {
         int attack = getTotalDamage(getDamage(), assignWeaponDamage(getWeapon()));
         int crit = new Random().nextInt(100)+ 1;
         if(crit == 25){

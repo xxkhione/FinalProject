@@ -6,7 +6,7 @@
  */
 package edu.neumont.csc150.model;
 
-public abstract class Character implements Attackable{
+public abstract class Figure implements Attackable{
     public final static int MIN_HEALTH = 0;
     private String name;
     private Arsenal weapon;
@@ -15,10 +15,10 @@ public abstract class Character implements Attackable{
     private int maxHealth;
     private boolean isAlive;
 
-    public Character(){
+    public Figure(){
         this("Default", Arsenal.SWORD, 10, 100, 100);
     }
-    public Character(String name, Arsenal weapon, int damage, int health, int maxHealth){
+    public Figure(String name, Arsenal weapon, int damage, int health, int maxHealth){
         setName(name);
         setWeapon(weapon);
         setDamage(damage);
