@@ -75,10 +75,13 @@ public class GameManager {
             int selection = ui.afterDeathPrompt();
             switch (selection){
                 case 1:
+                    SaveManager.loadGame(game.getPlayer().getName());
                     break;
                 case 2:
+                    newGame();
                     break;
                 default:
+                    ui.goodByeMessage();
                     return;
             }
 
