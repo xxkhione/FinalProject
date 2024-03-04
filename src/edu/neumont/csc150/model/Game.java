@@ -8,6 +8,8 @@ package edu.neumont.csc150.model;
 
 import edu.neumont.csc150.controller.EnemyDifficultyManager;
 
+import java.util.Random;
+
 public class Game {
     public final static int MAX_WEAPONS = 5;
     private int trialNumber;
@@ -55,7 +57,19 @@ public class Game {
     //endregion
 
     public void generateNewWeapon(){
-
+        Random rand = new Random();
+        int weaponChance = rand.nextInt(20) + 1;
+        if (weaponChance == 1 || weaponChance == 2 || weaponChance == 3 || weaponChance == 4 || weaponChance == 5 || weaponChance == 6){
+            player.setWeapon(Arsenal.BOW);
+        } else if (weaponChance == 7 || weaponChance == 8 || weaponChance == 9 || weaponChance == 10 || weaponChance == 11 || weaponChance == 12) {
+            player.setWeapon(Arsenal.SWORD);
+        } else if (weaponChance == 13 || weaponChance == 14 || weaponChance == 15 || weaponChance == 16 ) {
+            player.setWeapon(Arsenal.AXE);
+        } else if (weaponChance == 17 || weaponChance == 18 || weaponChance == 19) {
+            player.setWeapon(Arsenal.HAMMER);
+        } else {
+            player.setWeapon(Arsenal.RUBBER_DUCK);
+        }
     }
 
     public boolean battle(){
