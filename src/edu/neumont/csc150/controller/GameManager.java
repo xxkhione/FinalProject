@@ -37,10 +37,40 @@ public class GameManager {
         }while (true);
     }
 
-    public void newGame(){
-        String name = ui.getName();
-        Player p = new Player(name);
-
+    private void afterBattle(){
+        do {
+            int selection = ui.afterBattlePrompt();
+            switch (selection){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+                    return;
+            }
+        } while (true);
 
     }
+
+    private void afterDeath(){
+        do {
+            int selection = ui.afterDeathPrompt();
+            switch (selection){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+                    return;
+            }
+
+        }while (true);
+    }
+
+    private void newGame(){
+        String name = ui.getName();
+        Player p = new Player(name);
+    }
+
+
 }
