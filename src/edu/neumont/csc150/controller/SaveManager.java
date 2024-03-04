@@ -68,4 +68,12 @@ public class SaveManager {
         }
         return true;
     }
+
+    public static String[] getAllSaves(){
+        File file = new File(DATA_FOLDER + "/" + SAVE_FOLDER);
+        if(file.exists()){
+            return file.list();
+        }
+        return null;
+    }
 }
