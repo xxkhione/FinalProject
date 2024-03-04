@@ -16,6 +16,7 @@ public class Game {
         setEnemy(new Enemy());
         setTrialNumber(1);
     }
+    
     //region getters/setters
     public int getTrialNumber() {
         return trialNumber;

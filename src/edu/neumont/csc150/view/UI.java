@@ -52,11 +52,23 @@ public class UI {
         //comment
     }
 
-    public int allSaves(){
-        return 0;
+    public String allSaves(String[] currentSaves){
+        if(currentSaves != null && currentSaves.length > 0){
+            StringBuilder saveList = new StringBuilder();
+            for (int i = 0; i < currentSaves.length; i++) {
+                saveList.append((i + 1) + ": " + currentSaves[i].substring(0, currentSaves[i].lastIndexOf(".")) + "\n");
+            }
+            int selection = Console.getIntInput(saveList.toString(), 1, currentSaves.length);
+            return currentSaves[selection -1];
+        } else{
+            noSaves();
+            return null;
+        }
     }
 
-
+    public void welcomeMessage(){
+        Console.writeLn("Welcome to this Solo-RPG!");
+    }
 
 
 }
