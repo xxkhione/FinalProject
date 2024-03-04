@@ -54,7 +54,7 @@ public class GameManager {
                 case 2:
                     game.generateNewWeapon();
                 case 2: // New Weapon
-                    Game.generateNewWeapon();
+                    game.generateNewWeapon();
                     break;
                 default: // Save and exit
                     SaveManager.saveGame(game);
