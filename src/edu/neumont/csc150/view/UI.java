@@ -72,4 +72,7 @@ public class UI {
     public void goodByeMessage(){
         Console.writeLn("Thank you for playing! Goodbye.");
     }
+    public void saveMessage(){
+        Console.writeLn("Successfully saved game");
+    }
 }

@@ -95,6 +95,6 @@ public class GameManager {
     }
     private void saveGame(){
         SaveManager.saveGame(getGame());
-        ui.goodByeMessage();
+        ui.saveMessage();
     }
 }
