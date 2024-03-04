@@ -43,10 +43,12 @@ public class GameManager {
             int selection = ui.afterBattlePrompt();
             switch (selection){
                 case 1:
+                SaveManager.saveGame();
                     break;
                 case 2:
                     break;
                 default:
+                    SaveManager.saveGame();
                     return;
             }
         } while (true);

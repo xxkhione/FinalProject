@@ -18,7 +18,7 @@ public class UI {
     }
 
     public String getName(){
-        return Console.getStringInput("What is your name, warrior");
+        return Console.getStringInput("What is your name, warrior?");
         //comment
     }
 
@@ -37,7 +37,7 @@ public class UI {
         return Console.getIntInput("""
                 1. Save Game
                 2. Generate New Weapon
-                3. Quit""", 1, 3);
+                3. Save and Quit""", 1, 3);
     }
 
     public int afterDeathPrompt(){
