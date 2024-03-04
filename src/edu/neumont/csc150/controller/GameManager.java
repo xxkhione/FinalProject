@@ -19,14 +19,12 @@ public class GameManager {
     public Game getGame() {
         return game;
     }
-
     private void setGame(Game game) {
         this.game = game;
     }
-
     //endregion
 
-    public void Run(){
+    public void run(){
         ui.welcomeMessage();
         do {
             int selection = ui.mainMenu();
@@ -55,12 +53,12 @@ public class GameManager {
             int selection = ui.afterBattlePrompt();
             switch (selection){
                 case 1:
-                    SaveManager.saveGame();
+                    SaveManager.saveGame(game);
                     break;
                 case 2:
                     break;
                 default:
-                    SaveManager.saveGame();
+                    SaveManager.saveGame(game);
                     return;
             }
         } while (true);
