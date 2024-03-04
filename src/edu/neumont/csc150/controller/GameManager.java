@@ -13,6 +13,7 @@ public class GameManager {
 
     UI ui = new UI();
     public void Run(){
+        ui.welcomeMessage();
         do {
             int selection = ui.mainMenu();
             switch (selection){
