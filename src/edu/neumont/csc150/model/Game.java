@@ -17,7 +17,7 @@ public class Game {
 
     public Game(Figure player, int trial){
         setPlayer(player);
-        setEnemy(EnemyDifficultyManager.increaseDifficulty(this, trial));
+        //setEnemy(EnemyDifficultyManager.increaseDifficulty(this, trial));
         setTrialNumber(trial);
     }
     public Game(Figure player){

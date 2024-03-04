@@ -93,6 +93,7 @@ public class GameManager {
             return;
         }
         setGame(SaveManager.loadGame(saveName));
+        startBattle();
     }
 
     private void startBattle(){
