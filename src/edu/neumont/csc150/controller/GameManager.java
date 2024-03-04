@@ -44,7 +44,7 @@ public class GameManager {
         } while (true);
     }
 
-    public void pickASave(){
+    private void pickASave(){
         String saveName = ui.allSaves(SaveManager.getAllSaves());
         if(saveName == null){
             return;
@@ -60,6 +60,7 @@ public class GameManager {
                     SaveManager.saveGame(game);
                     break;
                 case 2:
+                    Game.generateNewWeapon();
                     break;
                 default:
                     SaveManager.saveGame(game);
