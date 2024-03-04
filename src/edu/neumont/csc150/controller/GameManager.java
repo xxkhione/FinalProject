@@ -17,8 +17,6 @@ public class GameManager {
             int selection = ui.mainMenu();
             switch (selection){
                 case 1:
-                    Player p = new Player();
-                    String name = ui.getName();
                     break;
                 case 2:
                     break;
@@ -32,7 +30,17 @@ public class GameManager {
     public void pickASave(){
         do {
             int selection = ui.allSaves();
+            switch (selection){
+
+            }
 
         }while (true);
+    }
+
+    public void newGame(){
+        String name = ui.getName();
+        Player p = new Player(name);
+
+
     }
 }
