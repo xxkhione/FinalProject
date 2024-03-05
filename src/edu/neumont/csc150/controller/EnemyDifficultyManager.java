@@ -22,11 +22,13 @@ public class EnemyDifficultyManager {
 
     public static Figure increaseDifficulty(Game game, int trialNumber){
         float chanceForOPWeapon = rand.nextFloat(0.05f);
-        int health = game.getEnemy().getHealth();
-        int damage = game.getEnemy().getDamage();
+        int health = 100;
+        int damage = 5;
         Arsenal weapon = null;
         if(trialNumber % 5 == 0 || trialNumber == 1){
-
+            health += 10;
+            damage += 5;
+            weapon = game.generateNewWeapon();
         }
         return null;
     }

@@ -51,7 +51,7 @@ public class GameManager {
                 startBattle();
                 break;
             case 2: // New Weapon
-                game.generateNewWeapon();
+                game.getPlayer().setWeapon();
                 startBattle();
                 break;
             default: //save & exit
