@@ -20,6 +20,11 @@ public class SaveManager {
         return DATA_FOLDER + "/" + SAVE_FOLDER + "/" + saveName;
     }
 
+    /**
+     * Saves the current version of the game and appends all the needed info into a StringBuilder.
+     * Calls writeSave to officially write the save passing in saveName(The player's name) and the saveInfo.
+     * @param game - the current instance of game that the user wants to save.
+     */
     public static void saveGame(Game game){
         String saveName = game.getPlayer().getName();
         StringBuilder saveInfo = new StringBuilder();
@@ -33,6 +38,12 @@ public class SaveManager {
         writeSave(saveName, saveInfo.toString());
     }
 
+    /**
+     * Reads the data from the save file requested and then splits up the information.
+     * Once the file is split up, the variables needed are then reassigned to create new instances of a game, player, and enemy.
+     * @param saveName - the player's name.
+     * @return - returns a new instance of a game with the data extracted from the file.
+     */
     public static Game loadGame(String saveName){
         List<String> saveData = readSave(saveName);
         Game game = null;
@@ -85,6 +96,11 @@ public class SaveManager {
         return game;
     }
 
+    /**
+     * Writes the save information into a .txt file using a BufferedWriter.
+     * @param saveName - the player's name.
+     * @param saveInfo - the save information passed from saveGame.
+     */
     private static void writeSave(String saveName, String saveInfo){
         if(checkIfPathExists()) {
             BufferedWriter bWriter;
@@ -102,6 +118,12 @@ public class SaveManager {
             }
         }
     }
+
+    /**
+     * Reads the save with the matching saveName using a BufferedReader.
+     * @param saveName - the player's name.
+     * @return a list of strings containing all the information from the file read.
+     */
     private static List<String> readSave(String saveName){
         if(checkIfPathExists()) {
             try {
@@ -118,6 +140,11 @@ public class SaveManager {
         return null;
     }
 
+    /**
+     * Checks if the path exists before manipulating anything within the path.
+     * If the path doesn't exist, it creates the directories needed.
+     * @return a boolean; returns true if path exists.
+     */
     private static boolean checkIfPathExists(){
         File path = new File(DATA_FOLDER + "/" + SAVE_FOLDER);
         if(!path.exists()){
@@ -126,6 +153,10 @@ public class SaveManager {
         return true;
     }
 
+    /**
+     * Gets all the saves from the data/save folder and lists all names.
+     * @return a String[] with all the save names in the data/save directory.
+     */
     public static String[] getAllSaves(){
         File file = new File(DATA_FOLDER + "/" + SAVE_FOLDER);
         if(file.exists()){
