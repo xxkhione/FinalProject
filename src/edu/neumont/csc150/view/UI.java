@@ -93,4 +93,7 @@ public class UI {
     public void displayPlayerLostMessage(int trialNumber){
         Console.writeLn("I'm very disappointed in you, warrior. You lost the " + trialNumber + " trial. May you rest in peace.", Console.TextColor.RED);
     }
+    public void endGameMessage(){
+        Console.writeLn("Congratulations! You beat the game. You may rest now, warrior.", Console.TextColor.GREEN);
+    }
 }

@@ -44,19 +44,24 @@ public class GameManager {
     }
 
     private void afterBattle(){
-        int selection = ui.afterBattlePrompt();
-        switch (selection) {
-            case 1: // Save Game
-                saveGame();
-                startBattle();
-                break;
-            case 2: // New Weapon
-                game.getPlayer().setWeapon(game.generateNewWeapon());
-                startBattle();
-                break;
-            default: //save & exit
-                saveGame();
+        if(game.getTrialNumber() == Game.MAX_TRIALS){
+            ui.endGameMessage();
+        }
+        else {
+            int selection = ui.afterBattlePrompt();
+            switch (selection) {
+                case 1: // Save Game
+                    saveGame();
+                    startBattle();
+                    break;
+                case 2: // New Weapon
+                    game.getPlayer().setWeapon(game.generateNewWeapon());
+                    startBattle();
+                    break;
+                default: //save & exit
+                    saveGame();
 
+            }
         }
     }
 

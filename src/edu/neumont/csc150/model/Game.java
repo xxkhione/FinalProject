@@ -6,12 +6,10 @@
  */
 package edu.neumont.csc150.model;
 
-import edu.neumont.csc150.controller.EnemyDifficultyManager;
-
 import java.util.Random;
 
 public class Game {
-    public final static int MAX_WEAPONS = 5;
+    public final static int MAX_TRIALS = 25;
     private int trialNumber;
     private Figure player, enemy;
 
