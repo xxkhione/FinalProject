@@ -29,8 +29,7 @@ public class SaveManager {
         saveInfo.append("max health:" + Player.MAX_HEALTH + "\n");
         saveInfo.append("weapon:" + game.getPlayer().getWeapon() + "\n");
         saveInfo.append("enemy health:" + game.getEnemy().getHealth() + "\n");
-        saveInfo.append("enemy damage:" + game.getEnemy().getDamage() + "\n");
-        saveInfo.append("enemy weapon:" + game.getEnemy().getWeapon());
+        saveInfo.append("enemy damage:" + game.getEnemy().getDamage());
         writeSave(saveName, saveInfo.toString());
     }
 
@@ -77,13 +76,6 @@ public class SaveManager {
                 } else if(saveLine.startsWith("enemy damage")){
                     String[] enemyDamageParts = saveLine.split(":");
                     enemyDamage = Integer.parseInt(enemyDamageParts[1]);
-                } else if(saveLine.startsWith("enemy weapon")) {
-                    String[] weaponParts = saveLine.split(":");
-                    if (weaponParts[1].equals("Rubber Duck")) {
-                        enemyWeapon = Arsenal.RUBBER_DUCK;
-                    } else {
-                        enemyWeapon = Arsenal.valueOf(weaponParts[1].toUpperCase());
-                    }
                 }
             }
             player = new Player(playerName, weapon, damage, health, maxHealth);
