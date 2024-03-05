@@ -76,21 +76,21 @@ public class UI {
     }
 
     public void welcomeMessage(){
-        Console.writeLn("Welcome to this Solo-RPG!");
+        Console.writeLn("Welcome to this Solo-RPG!", Console.TextColor.BLUE);
     }
     public void goodByeMessage(){
-        Console.writeLn("Thank you for playing! Goodbye.");
+        Console.writeLn("Thank you for playing! Goodbye.", Console.TextColor.BLUE);
     }
     private void pressEnterTocContinue() {
         Console.getStringInput("~".repeat(10) + " Press [Enter] to continue " + "~".repeat(10), true);
     }
     public void saveMessage(){
-        Console.writeLn("Successfully saved game");
+        Console.writeLn("Successfully saved game", Console.TextColor.GREEN);
     }
     public void displayPlayerWonMessage(int trialNumber){
-        Console.writeLn("Congrats Warrior! You have won the " + trialNumber + " trial!");
+        Console.writeLn("Congrats Warrior! You have won the " + trialNumber + " trial!", Console.TextColor.GREEN);
     }
     public void displayPlayerLostMessage(int trialNumber){
-        Console.writeLn("I'm very disappointed in you, warrior. You lost the " + trialNumber + " trial. May you rest in peace.");
+        Console.writeLn("I'm very disappointed in you, warrior. You lost the " + trialNumber + " trial. May you rest in peace.", Console.TextColor.RED);
     }
 }
