@@ -58,7 +58,7 @@ public class SaveManager {
                     maxHealth = Integer.parseInt(maxHealthParts[1]);
                 }  else if(saveLine.startsWith("weapon")){
                     String[] weaponParts = saveLine.split(":");
-                    if(weaponParts[1].equals("rubber duck")){
+                    if(weaponParts[1].equals("Rubber Duck")){
                         weapon = Arsenal.RUBBER_DUCK;
                     } else {
                         weapon = Arsenal.valueOf(weaponParts[1].toUpperCase());
