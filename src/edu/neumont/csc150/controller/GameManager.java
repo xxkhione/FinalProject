@@ -70,7 +70,6 @@ public class GameManager {
                 newGame();
                 break;
             default: // Exit
-                ui.goodByeMessage();
         }
     }
 

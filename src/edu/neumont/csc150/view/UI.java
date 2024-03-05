@@ -18,7 +18,7 @@ public class UI {
     }
 
     public String getName(){
-        return Console.getStringInput("What is your name, warrior?");
+        return Console.getStringInput("What is your name, warrior?", false, Console.TextColor.YELLOW);
         //comment
     }
 
