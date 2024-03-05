@@ -10,6 +10,10 @@ import edu.neumont.csc150.model.Figure;
 
 public class UI {
 
+    /**
+     * The main menu for the application
+     * @return the selection of the user
+     */
     public int mainMenu(){
         return Console.getIntInput("""
                 1. New Game
@@ -17,11 +21,20 @@ public class UI {
                 3. Exit""",1, 3, Console.TextColor.YELLOW);
     }
 
+    /**
+     * Gets the user's name which is also used as the save name
+     * @return the name of the character
+     */
     public String getName(){
         return Console.getStringInput("What is your name, warrior?", false, Console.TextColor.YELLOW);
         //comment
     }
 
+    /**
+     * This displays the battle to come, your character versus an enemy
+     * @param player allows the ui to access the toString of the player and display it
+     * @param enemy allows the ui to access the toString of the enemy and display it
+     */
     public void battleMenu(Figure player, Figure enemy){
         Console.writeLn(player.toString(), Console.TextColor.PURPLE);
         Console.writeLn("Is going up against...");
@@ -29,9 +42,22 @@ public class UI {
         pressEnterTocContinue();
     }
 
+    /**
+     * This shows the name during the battle and all the information you need
+     * @param player allows the ui to access the toString of the player and display it
+     * @param enemy allows the ui to access the toString of the enemy and display it
+     */
     public void displayBattleInProgress(Figure player, Figure enemy){
         Console.writeLn(player.toString() + "       " + enemy.toString(), Console.TextColor.PURPLE);
     }
+
+    /**
+     *
+     * @param isPlayersTurn
+     * @param player
+     * @param enemy
+     * @return
+     */
     public boolean attackOccurred(boolean isPlayersTurn, Figure player, Figure enemy){
         if(isPlayersTurn) {
             Console.writeLn(player.getName() + " attacks for " + player.getTotalDamage(player.getDamage(), player.getWeaponDamage()), Console.TextColor.RED);
@@ -42,6 +68,10 @@ public class UI {
         }
     }
 
+    /**
+     * this displays after every trial, allowing the player to save, generate a new weapon or save, then quitting
+     * @return a selection from the player
+     */
     public int afterBattlePrompt(){
         return Console.getIntInput("""
                 1. Save & Continue
@@ -49,6 +79,10 @@ public class UI {
                 3. Save & Quit""", 1, 3, Console.TextColor.YELLOW);
     }
 
+    /**
+     * displays after the player dies, allows to load a previous save, start new game, or exit the application
+     * @return a selection from the player
+     */
     public int afterDeathPrompt(){
         return Console.getIntInput("""
                 1.Load A Save
@@ -56,11 +90,19 @@ public class UI {
                 3.Exit""", 1, 3, Console.TextColor.YELLOW);
     }
 
+    /**
+     * displays that the user has no saves
+     */
     public void noSaves(){
         Console.writeLn("You have no current saves", Console.TextColor.RED);
         //comment
     }
 
+    /**
+     *
+     * @param currentSaves
+     * @return
+     */
     public String allSaves(String[] currentSaves){
         if(currentSaves != null && currentSaves.length > 0){
             StringBuilder saveList = new StringBuilder();
@@ -75,24 +117,54 @@ public class UI {
         }
     }
 
+    /**
+     * displays a simple welcome message
+     */
     public void welcomeMessage(){
         Console.writeLn("Welcome to this Solo-RPG!", Console.TextColor.BLUE);
     }
+
+    /**
+     * displays a simple goodbye message
+     */
     public void goodByeMessage(){
         Console.writeLn("Thank you for playing! Goodbye.", Console.TextColor.BLUE);
     }
+
+    /**
+     * displays "Press enter to continue"
+     * Credit: Beardall
+     */
     private void pressEnterTocContinue() {
         Console.getStringInput("~".repeat(10) + " Press [Enter] to continue " + "~".repeat(10), true);
     }
+
+    /**
+     * displays a message saying you have saved successfully
+     */
     public void saveMessage(){
         Console.writeLn("Successfully saved game", Console.TextColor.GREEN);
     }
+
+    /**
+     * Says you have won your current trial
+     * @param trialNumber uses the trial number to display what trial you are on
+     */
     public void displayPlayerWonMessage(int trialNumber){
         Console.writeLn("Congrats Warrior! You have won the " + trialNumber + " trial!", Console.TextColor.GREEN);
     }
+
+    /**
+     * says you have lost and what trial you lost on
+     * @param trialNumber uses the trial number to display what trial you are on
+     */
     public void displayPlayerLostMessage(int trialNumber){
         Console.writeLn("I'm very disappointed in you, warrior. You lost the " + trialNumber + " trial. May you rest in peace.", Console.TextColor.RED);
     }
+
+    /**
+     * says you have beat the game, and your battle days are over
+     */
     public void endGameMessage(){
         Console.writeLn("Congratulations! You beat the game. You may rest now, warrior.", Console.TextColor.GREEN);
     }
