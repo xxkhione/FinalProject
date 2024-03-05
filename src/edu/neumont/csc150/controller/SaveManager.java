@@ -58,7 +58,11 @@ public class SaveManager {
                     maxHealth = Integer.parseInt(maxHealthParts[1]);
                 }  else if(saveLine.startsWith("weapon")){
                     String[] weaponParts = saveLine.split(":");
-                    weapon = Arsenal.valueOf(weaponParts[1].toUpperCase());
+                    if(weaponParts[1] == "rubber duck"){
+                        weapon = Arsenal.RUBBER_DUCK;
+                    } else {
+                        weapon = Arsenal.valueOf(weaponParts[1].toUpperCase());
+                    }
                 }
             }
             player = new Player(playerName, weapon, damage, health, maxHealth);
