@@ -13,15 +13,9 @@ import edu.neumont.csc150.model.Game;
 import java.util.Random;
 
 public class EnemyDifficultyManager {
-    public static final Random rand = new Random();
-    //Gets the trial number
-    //Based on the number (increments of 5)
-    //The damage & health of enemy get stronger
-    //Their chance of getting a harder hitting weapon increases
-    //Returns enemy with new properties
 
     public static Figure increaseDifficulty(Game game, int trialNumber){
-        float chanceForOPWeapon = rand.nextFloat(0.05f);
+        Figure newEnemy =
         int health = 100;
         int damage = 5;
         Arsenal weapon = null;
@@ -29,6 +23,7 @@ public class EnemyDifficultyManager {
             health += 10;
             damage += 5;
             weapon = game.generateNewWeapon();
+
         }
         return null;
     }
