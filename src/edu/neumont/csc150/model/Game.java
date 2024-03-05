@@ -15,9 +15,9 @@ public class Game {
     private int trialNumber;
     private Figure player, enemy;
 
-    public Game(Figure player, int trial){
+    public Game(Figure player, Figure enemy, int trial){
         setPlayer(player);
-        //setEnemy(EnemyDifficultyManager.increaseDifficulty(this, trial));
+        setEnemy(enemy);
         setTrialNumber(trial);
     }
     public Game(Figure player){
@@ -48,7 +48,7 @@ public class Game {
     public Figure getEnemy() {
         return enemy;
     }
-    private void setEnemy(Figure enemy) {
+    public void setEnemy(Figure enemy) {
         if(enemy == null){
             throw new IllegalArgumentException("Game enemy object cannot be null.");
         }
@@ -73,6 +73,7 @@ public class Game {
     }
     public void startOfNewTrial(){
         player.setHealth(Player.MAX_HEALTH, Player.MAX_HEALTH);
+        enemy.setHealth(Enemy.BASE_HEALTH, Enemy.BASE_HEALTH);
     }
 
     public boolean playerTurn(){

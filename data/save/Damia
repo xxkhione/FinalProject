@@ -1,5 +1,5 @@
 name:Damia
-trial:2
-health:40
+trial:3
+health:100
 max health:100
-weapon:Axe
+weapon:Axeenemy health:0enemy damage:0enemy weapon:Sword

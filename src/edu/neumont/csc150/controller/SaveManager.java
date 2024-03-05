@@ -27,7 +27,10 @@ public class SaveManager {
         saveInfo.append("trial:" + game.getTrialNumber() + "\n");
         saveInfo.append("health:" + game.getPlayer().getHealth() + "\n");
         saveInfo.append("max health:" + Player.MAX_HEALTH + "\n");
-        saveInfo.append("weapon:" + game.getPlayer().getWeapon());
+        saveInfo.append("weapon:" + game.getPlayer().getWeapon() + "\n");
+        saveInfo.append("enemy health:" + game.getEnemy().getHealth() + "\n");
+        saveInfo.append("enemy damage:" + game.getEnemy().getDamage() + "\n");
+        saveInfo.append("enemy weapon:" + game.getEnemy().getWeapon());
         writeSave(saveName, saveInfo.toString());
     }
 
@@ -35,6 +38,7 @@ public class SaveManager {
         List<String> saveData = readSave(saveName);
         Game game = null;
         Figure player = null;
+        Figure enemy = null;
 
         if(saveData != null){
             String playerName = null;
@@ -43,6 +47,10 @@ public class SaveManager {
             int maxHealth = Player.MAX_HEALTH;
             int damage = Player.BASE_DAMAGE;
             Arsenal weapon = null;
+            int enemyHealth = 0;
+            int enemyDamage = 0;
+            Arsenal enemyWeapon = null;
+
             for(String saveLine : saveData){
                 if(saveLine.startsWith("name")){
                     String[] nameParts = saveLine.split(":");
@@ -63,10 +71,24 @@ public class SaveManager {
                     } else {
                         weapon = Arsenal.valueOf(weaponParts[1].toUpperCase());
                     }
+                } else if(saveLine.startsWith("enemy health")){
+                    String[] enemyHealthParts = saveLine.split(":");
+                    enemyHealth = Integer.parseInt(enemyHealthParts[1]);
+                } else if(saveLine.startsWith("enemy damage")){
+                    String[] enemyDamageParts = saveLine.split(":");
+                    enemyDamage = Integer.parseInt(enemyDamageParts[1]);
+                } else if(saveLine.startsWith("enemy weapon")) {
+                    String[] weaponParts = saveLine.split(":");
+                    if (weaponParts[1].equals("Rubber Duck")) {
+                        enemyWeapon = Arsenal.RUBBER_DUCK;
+                    } else {
+                        enemyWeapon = Arsenal.valueOf(weaponParts[1].toUpperCase());
+                    }
                 }
             }
             player = new Player(playerName, weapon, damage, health, maxHealth);
-            game = new Game(player, trial);
+            enemy = new Enemy(enemyWeapon, enemyDamage, enemyHealth, enemyHealth);
+            game = new Game(player, enemy, trial);
         }
         return game;
     }

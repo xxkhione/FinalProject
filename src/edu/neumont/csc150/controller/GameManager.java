@@ -47,7 +47,7 @@ public class GameManager {
         int selection = ui.afterBattlePrompt();
         switch (selection) {
             case 1: // Save Game
-                SaveManager.saveGame(game);
+                saveGame();
                 startBattle();
                 break;
             case 2: // New Weapon
@@ -55,26 +55,23 @@ public class GameManager {
                 startBattle();
                 break;
             default: //save & exit
-                SaveManager.saveGame(game);
+                saveGame();
 
         }
     }
 
     private void afterDeath(){
-        do {
-            int selection = ui.afterDeathPrompt();
-            switch (selection){
-                case 1: // Load Game
-                    pickASave();
-                    break;
-                case 2: // New Game
-                    newGame();
-                    break;
-                default: // Exit
-                    ui.goodByeMessage();
-                    return;
-            }
-        }while (true);
+        int selection = ui.afterDeathPrompt();
+        switch (selection){
+            case 1: // Load Game
+                pickASave();
+                break;
+            case 2: // New Game
+                newGame();
+                break;
+            default: // Exit
+                ui.goodByeMessage();
+        }
     }
 
     private void newGame(){
@@ -99,6 +96,7 @@ public class GameManager {
 
     private void startBattle(){
         game.startOfNewTrial();
+        game.setEnemy(EnemyDifficultyManager.increaseDifficulty(game, game.getTrialNumber()));
         ui.battleMenu(game.getPlayer(), game.getEnemy());
         boolean playerIsAlive = battle();
         checkIfPlayerWon(playerIsAlive);

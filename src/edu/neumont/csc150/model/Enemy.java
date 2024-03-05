@@ -9,6 +9,7 @@ package edu.neumont.csc150.model;
 import java.util.Random;
 
 public class Enemy extends Figure {
+    public static final int BASE_HEALTH = 100;
     public Enemy(){
         super();
     }
