@@ -56,6 +56,7 @@ public class GameManager {
                 break;
             default: //save & exit
                 SaveManager.saveGame(game);
+
         }
     }
 
@@ -125,6 +126,7 @@ public class GameManager {
     private void checkIfPlayerWon(boolean playerIsAlive){
         if(playerIsAlive){
             ui.displayPlayerWonMessage(game.getTrialNumber());
+            game.setTrialNumber(game.getTrialNumber() + 1);
             afterBattle();
         } else{
             ui.displayPlayerLostMessage(game.getTrialNumber());

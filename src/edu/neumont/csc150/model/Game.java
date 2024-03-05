@@ -30,7 +30,7 @@ public class Game {
     public int getTrialNumber() {
         return trialNumber;
     }
-    private void setTrialNumber(int trialNumber) {
+    public void setTrialNumber(int trialNumber) {
         if(trialNumber == 0){
             throw new IllegalArgumentException("Game trialNumber cannot be 0.");
         }
