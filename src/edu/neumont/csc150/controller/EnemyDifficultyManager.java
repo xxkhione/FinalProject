@@ -11,10 +11,15 @@ import edu.neumont.csc150.model.Enemy;
 import edu.neumont.csc150.model.Figure;
 import edu.neumont.csc150.model.Game;
 
-import java.util.Random;
-
 public class EnemyDifficultyManager {
 
+    /**
+     * Increases the enemy difficulty every 5 trials.
+     * The health increases by 10 each time. Creates a new instance of an enemy.
+     * @param game - the current instance of the game.
+     * @param trialNumber - the current trial number that the user is on.
+     * @return a new enemy with the increased attributes.
+     */
     public static Figure increaseDifficulty(Game game, int trialNumber){
         Figure newEnemy;
         int health = game.getEnemy().getHealth();

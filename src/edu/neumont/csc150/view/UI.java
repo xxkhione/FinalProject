@@ -52,11 +52,11 @@ public class UI {
     }
 
     /**
-     *
-     * @param isPlayersTurn
-     * @param player
-     * @param enemy
-     * @return
+     * Displays an attack occurring during battle.
+     * @param isPlayersTurn - whether the player is attacking and uses an if/else check to determine who to display is attacking.
+     * @param player - the user's figure.
+     * @param enemy - the enemy the user is going against.
+     * @return a boolean to switch the player's turn from true to false after an attack and vise versa after an enemy's attack.
      */
     public boolean attackOccurred(boolean isPlayersTurn, Figure player, Figure enemy){
         if(isPlayersTurn) {
@@ -99,9 +99,9 @@ public class UI {
     }
 
     /**
-     *
-     * @param currentSaves
-     * @return
+     * Displays all saves in the data/save folder, as long as there are files in the directory.
+     * @param currentSaves - a list of all save names.
+     * @return - the selection of a save from the user, else it returns null if there is none.
      */
     public String allSaves(String[] currentSaves){
         if(currentSaves != null && currentSaves.length > 0){
