@@ -18,7 +18,12 @@ public class Enemy extends Figure {
         super("Enemy", weapon, damage, health, maxHealth);
     }
 
-
+    /**
+     * This method allows for the enemy to dodge, which decreases the amount of overall damage the enemy takes
+     * The method also reduces the health from the enemy
+     * @param damage the method uses this parameter to deal damage to the enemy
+     * @return it then returns the total damage taken from the player
+     */
     @Override
     public int takeDamage(int damage) {
         int block = new Random().nextInt(50) + 1;
@@ -33,6 +38,12 @@ public class Enemy extends Figure {
 
     }
 
+    /**
+     * this method attacks the player and checks if they are dead after they are attacked
+     * there is also a possibility for a critical attack
+     * @param player the method uses the enemy parameter to check the current health of the player and is also used to call the takeDamage method to deal damage
+     * @return this returns the player taking damage
+     */
     @Override
     public int attack(Figure player) {
         int attack = getTotalDamage(getDamage(), getWeaponDamage());
