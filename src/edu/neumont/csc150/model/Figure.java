@@ -93,7 +93,7 @@ public abstract class Figure implements Attackable{
      * @param weapon the weapon that a figure has.
      * @return an integer that represents the weapon damage.
      */
-    public int assignWeaponDamage(Arsenal weapon){
+    private int assignWeaponDamage(Arsenal weapon){
         if(weapon != null){
             switch(weapon){
                 case BOW, SWORD -> {

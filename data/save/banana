@@ -1,0 +1,7 @@
+name:banana
+trial:4
+health:40
+max health:100
+weapon:Axe
+enemy health:0
+enemy damage:5

@@ -1,0 +1,7 @@
+name:TM
+trial:3
+health:60
+max health:100
+weapon:Hammer
+enemy health:0
+enemy damage:5

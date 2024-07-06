@@ -1,0 +1,7 @@
+name:ally
+trial:9
+health:20
+max health:100
+weapon:Sword
+enemy health:0
+enemy damage:5
